@@ -119,6 +119,250 @@ h2 { font-size:clamp(26px,4vw,38px); margin:0 0 12px; }
   .grid { grid-template-columns:1fr; }
   h1 { letter-spacing:-1px; }
 }
+
+/* === CYBER NEON PREMIUM === */
+body {
+  background:
+    radial-gradient(ellipse at 15% 8%, #06374866, transparent 38%),
+    radial-gradient(ellipse at 90% 35%, #102c5566, transparent 38%),
+    var(--bg);
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #080d18eF;
+  backdrop-filter: blur(16px);
+}
+.logo {
+  text-shadow: 0 0 18px #00e5ff55;
+}
+.links a, .btn, .card {
+  transition: all .22s ease;
+}
+.links a:hover {
+  text-shadow: 0 0 12px #00e5ff88;
+}
+.nav-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border: 1px solid #00e5ff88;
+  border-radius: 10px;
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: inset 0 0 14px #00e5ff0c;
+}
+.nav-download:hover {
+  background: #00e5ff18;
+  box-shadow: 0 0 20px #00e5ff25;
+}
+.hero {
+  padding-top: 76px;
+  padding-bottom: 76px;
+}
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.12fr .88fr;
+  align-items: center;
+  gap: 36px;
+}
+.hero-copy { min-width: 0; }
+.tag {
+  box-shadow: 0 0 22px #00e5ff12;
+}
+.tag::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: 0 8px 1px 0;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+h1 {
+  text-wrap: balance;
+  text-shadow: 0 0 32px #00e5ff0b;
+}
+h1 span {
+  text-shadow: 0 0 32px #00e5ff25;
+}
+.lead { line-height: 1.8; }
+.btn {
+  min-height: 46px;
+  border-radius: 12px;
+}
+.btn.primary {
+  box-shadow: 0 0 24px #00e5ff25;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn.primary:hover {
+  box-shadow: 0 0 32px #00e5ff55;
+}
+.btn.secondary:hover {
+  background: #00e5ff12;
+}
+.hero-visual {
+  position: relative;
+  padding: 18px;
+  border: 1px solid #00e5ff55;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, #00e5ff18, transparent 65%),
+    linear-gradient(145deg, #10283b, #0b1220 70%);
+  box-shadow: 0 22px 70px #0006, 0 0 32px #00e5ff10,
+              inset 0 0 30px #00e5ff06;
+}
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  right: -85px;
+  top: -95px;
+  border-radius: 50%;
+  background: #00e5ff18;
+  filter: blur(22px);
+}
+.screen-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 2px 2px 15px;
+  border-bottom: 1px solid #ffffff12;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+.live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #4dffb5;
+  box-shadow: 0 0 10px #4dffb5;
+}
+.screen-main {
+  display: grid;
+  place-items: center;
+  min-height: 190px;
+  margin-top: 16px;
+  border: 1px solid #00e5ff22;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at center, #00e5ff16, transparent 60%),
+    linear-gradient(145deg, #101d30, #070c15);
+}
+.play-orb {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border: 1px solid #00e5ff99;
+  border-radius: 50%;
+  color: var(--cyan);
+  font-size: 30px;
+  padding-left: 4px;
+  background: #00e5ff0b;
+  box-shadow: 0 0 35px #00e5ff20, inset 0 0 18px #00e5ff10;
+}
+.screen-caption {
+  margin-top: 13px;
+  color: #d8faff;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.screen-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.screen-line {
+  height: 4px;
+  margin-top: 12px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff12;
+}
+.screen-line span {
+  display: block;
+  width: 68%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--cyan);
+  box-shadow: 0 0 12px #00e5ff99;
+}
+.grid { gap: 18px; }
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #132136, #0d1625);
+}
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #00e5ff88;
+  box-shadow: 0 12px 32px #00e5ff0c;
+}
+.symbol {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #00e5ff35;
+  border-radius: 14px;
+  background: #00e5ff0b;
+  text-shadow: 0 0 15px #00e5ff55;
+}
+.notice {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 100% 0%, #00e5ff16, transparent 55%),
+    linear-gradient(120deg, #0c1c2c, #101a2b);
+  box-shadow: inset 0 0 35px #00e5ff05;
+}
+.faq {
+  padding: 20px 0;
+}
+.faq h3 { color: #eafaff; }
+.footer { border-top-color: #00e5ff25; }
+
+@media (max-width: 760px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .hero { padding-top: 48px; }
+  .hero-visual { max-width: 520px; width: 100%; margin: auto; }
+}
+@media (max-width: 650px) {
+  .nav-download { display: none; }
+  .hero { padding-bottom: 42px; }
+  .hero-visual { padding: 13px; border-radius: 19px; }
+  .screen-main { min-height: 160px; }
+  .play-orb { width: 66px; height: 66px; }
+  .card { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -130,28 +374,50 @@ h2 { font-size:clamp(26px,4vw,38px); margin:0 0 12px; }
       <a href="#panduan">Panduan</a>
       <a href="#dukungan">Dukungan</a>
     </div>
+    <a class="nav-download" href="https://github.com/xyz850/iontv-player/releases/latest/download/app-debug.apk">Download ↗</a>
   </nav>
 </header>
 
 <main>
   <section class="hero wrap" id="home">
-    <span class="tag">ANDROID MEDIA PLAYER</span>
-    <h1>Hiburan di layar kamu.<br><span>Dengan gaya berbeda.</span></h1>
-    <p class="lead">
-      Kenali CYBER NEON TV, pemutar media Android dengan tampilan
-      futuristik. Temukan informasi aplikasi, panduan penggunaan,
-      dan pembaruan dari proyek ini.
-    </p>
-    <div class="actions">
-      <a class="btn primary"
-         href="https://github.com/xyz850/iontv-player/releases/latest/download/app-debug.apk">
-        Download APK ↗
-      </a>
-      <a class="btn secondary" href="#fitur">Jelajahi Fitur</a>
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <span class="tag">ANDROID MEDIA PLAYER</span>
+        <h1>Hiburan di layar kamu.<br><span>Dengan gaya berbeda.</span></h1>
+        <p class="lead">
+          Kenali CYBER NEON TV, pemutar media Android dengan nuansa
+          futuristik, kontrol praktis, dan tampilan neon yang khas.
+          Temukan informasi aplikasi serta pembaruan proyek di sini.
+        </p>
+        <div class="actions">
+          <a class="btn primary"
+             href="https://github.com/xyz850/iontv-player/releases/latest/download/app-debug.apk">
+            Download APK ↗
+          </a>
+          <a class="btn secondary" href="#fitur">Jelajahi Fitur</a>
+        </div>
+        <p style="color:var(--muted);font-size:12px;margin-top:18px">
+          Gunakan media dan playlist yang kamu miliki atau yang diizinkan pemilik haknya.
+        </p>
+      </div>
+      <div class="hero-visual" aria-label="Ilustrasi antarmuka pemutar media Cyber Neon TV">
+        <div class="screen-top">
+          <span>CYBER NEON TV</span>
+          <span><i class="live-dot"></i>MEDIA PLAYER</span>
+        </div>
+        <div class="screen-main">
+          <div style="text-align:center">
+            <div class="play-orb">▷</div>
+            <div class="screen-caption">YOUR SCREEN. YOUR STYLE.</div>
+          </div>
+        </div>
+        <div class="screen-line"><span></span></div>
+        <div class="screen-bottom">
+          <span>NEON INTERFACE</span>
+          <span>ANDROID · VIDEO</span>
+        </div>
+      </div>
     </div>
-    <p style="color:var(--muted);font-size:12px;margin-top:18px">
-      Pastikan kompatibilitas perangkat dan sumber media sebelum digunakan.
-    </p>
   </section>
 
   <section class="wrap" id="fitur">
