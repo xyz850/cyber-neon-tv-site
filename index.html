@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="Kenali CYBER NEON TV, pemutar media Android dengan desain modern. Temukan informasi aplikasi, panduan, dan pembaruan resmi.">
+<title>CYBER NEON TV — Media Player</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bg:#080d18;
+  --panel:#101a2b;
+  --cyan:#00e5ff;
+  --text:#f3f7ff;
+  --muted:#a7b4c9;
+  --line:#25344b;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+a { color:inherit; text-decoration:none; }
+.wrap { width:min(1080px,91%); margin:auto; }
+header {
+  border-bottom:1px solid var(--line);
+  background:#080d18ee;
+}
+nav {
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.logo {
+  color:var(--cyan);
+  font-size:18px;
+  font-weight:850;
+  letter-spacing:2px;
+}
+.links { display:flex; gap:20px; font-size:14px; color:var(--muted); }
+.links a:hover, .footer a:hover { color:var(--cyan); }
+.hero { padding:76px 0 65px; }
+.tag {
+  display:inline-block;
+  color:var(--cyan);
+  border:1px solid #00e5ff55;
+  background:#00e5ff0c;
+  border-radius:30px;
+  padding:6px 12px;
+  font-size:12px;
+  letter-spacing:1.5px;
+}
+h1 {
+  max-width:760px;
+  font-size:clamp(38px,7vw,68px);
+  line-height:1.08;
+  letter-spacing:-2px;
+  margin:23px 0;
+}
+h1 span { color:var(--cyan); }
+.lead { max-width:650px; color:var(--muted); font-size:17px; }
+.actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--cyan);
+  border-radius:10px;
+  padding:12px 18px;
+  font-weight:750;
+}
+.btn.primary { background:var(--cyan); color:#06111c; }
+.btn.secondary { color:var(--cyan); }
+section { padding:48px 0; }
+h2 { font-size:clamp(26px,4vw,38px); margin:0 0 12px; }
+.sub { color:var(--muted); max-width:680px; margin:0 0 26px; }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.card {
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+}
+.symbol { color:var(--cyan); font-size:27px; }
+.card h3 { margin:10px 0 6px; }
+.card p, .faq p { color:var(--muted); margin-bottom:0; }
+.notice {
+  border:1px solid #00e5ff55;
+  border-radius:16px;
+  padding:24px;
+  background:linear-gradient(120deg,#0c1c2c,#101a2b);
+}
+.faq { padding:17px 0; border-bottom:1px solid var(--line); }
+.faq h3 { margin:0; font-size:17px; }
+.footer {
+  margin-top:30px;
+  border-top:1px solid var(--line);
+  padding:28px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+.footer-row { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+@media(max-width:650px) {
+  .links { gap:12px; font-size:12px; }
+  .logo { font-size:14px; letter-spacing:1px; }
+  nav { min-height:66px; }
+  .hero { padding:55px 0 40px; }
+  .grid { grid-template-columns:1fr; }
+  h1 { letter-spacing:-1px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="logo" href="#home">CYBER NEON TV</a>
+    <div class="links">
+      <a href="#fitur">Fitur</a>
+      <a href="#panduan">Panduan</a>
+      <a href="#dukungan">Dukungan</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap" id="home">
+    <span class="tag">ANDROID MEDIA PLAYER</span>
+    <h1>Hiburan di layar kamu.<br><span>Dengan gaya berbeda.</span></h1>
+    <p class="lead">
+      Kenali CYBER NEON TV, pemutar media Android dengan tampilan
+      futuristik. Temukan informasi aplikasi, panduan penggunaan,
+      dan pembaruan dari proyek ini.
+    </p>
+    <div class="actions">
+      <a class="btn primary"
+         href="https://github.com/xyz850/iontv-player/releases/latest/download/app-debug.apk">
+        Download APK ↗
+      </a>
+      <a class="btn secondary" href="#fitur">Jelajahi Fitur</a>
+    </div>
+    <p style="color:var(--muted);font-size:12px;margin-top:18px">
+      Pastikan kompatibilitas perangkat dan sumber media sebelum digunakan.
+    </p>
+  </section>
+
+  <section class="wrap" id="fitur">
+    <h2>Dibuat untuk pengalaman yang praktis.</h2>
+    <p class="sub">
+      Informasi utama tentang proyek CYBER NEON TV, disajikan sederhana
+      dan mudah dipahami.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <div class="symbol">◈</div>
+        <h3>Tampilan modern</h3>
+        <p>Tema gelap dan aksen cyan untuk tampilan yang konsisten dan nyaman.</p>
+      </article>
+      <article class="card">
+        <div class="symbol">▷</div>
+        <h3>Pemutar media</h3>
+        <p>Informasi mengenai dukungan pemutaran dan penggunaan sumber media yang kompatibel.</p>
+      </article>
+      <article class="card">
+        <div class="symbol">⌘</div>
+        <h3>Kontrol praktis</h3>
+        <p>Kenali pengaturan aplikasi melalui panduan yang akan terus dikembangkan.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="panduan">
+    <div class="notice">
+      <h2>Mulai dengan panduan yang tepat.</h2>
+      <p class="sub">
+        Gunakan sumber playlist atau video yang kamu miliki atau yang
+        penggunaannya telah diizinkan pemilik haknya.
+      </p>
+      <a class="btn secondary"
+         href="https://github.com/xyz850/iontv-player">
+        Lihat proyek di GitHub ↗
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap" id="dukungan">
+    <h2>Pertanyaan umum</h2>
+    <div class="faq">
+      <h3>Di mana mendapatkan APK?</h3>
+      <p>Kunjungi halaman rilis resmi proyek. Jika belum ada rilis, tautan tersebut akan menampilkan halaman rilis yang tersedia.</p>
+    </div>
+    <div class="faq">
+      <h3>Apakah semua saluran TV tersedia?</h3>
+      <p>Tidak. Ketersediaan media bergantung pada sumber yang kamu masukkan dan hak akses yang dimiliki.</p>
+    </div>
+    <div class="faq">
+      <h3>Bagaimana melaporkan masalah?</h3>
+      <p>Kunjungi repository proyek dan gunakan fitur Issues jika tersedia untuk melaporkan bug atau memberi saran.</p>
+    </div>
+    <div class="actions">
+      <a class="btn secondary"
+         href="https://github.com/xyz850/iontv-player/issues">
+        Bantuan & Laporan ↗
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <span>© 2026 CYBER NEON TV · Proyek independen.</span>
+    <span><a href="#home">Kembali ke atas ↑</a></span>
+  </div>
+</footer>
+</body>
+</html>
