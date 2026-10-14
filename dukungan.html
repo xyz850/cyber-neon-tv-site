@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="Panduan instalasi dan pusat dukungan Cyber Neon TV untuk Android dan Android TV Box.">
+<title>Pusat Dukungan — Cyber Neon TV</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #080d18;
+  --panel: #101a2b;
+  --cyan: #00e5ff;
+  --text: #eaf6ff;
+  --muted: #9aafc5;
+  --border: #00e5ff35;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 15% 0%, #06374855, transparent 42%),
+    radial-gradient(ellipse at 90% 35%, #102c5544, transparent 40%),
+    var(--bg);
+  font: 16px/1.75 system-ui, -apple-system, sans-serif;
+}
+a { color: var(--cyan); }
+.wrap { width: min(920px, calc(100% - 32px)); margin: auto; }
+header {
+  border-bottom: 1px solid var(--border);
+  background: #080d18eF;
+}
+nav {
+  min-height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+.brand {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 18px #00e5ff35;
+}
+nav a:not(.brand) { text-decoration: none; font-size: 14px; }
+main { padding-top: 46px; padding-bottom: 64px; }
+.eyebrow {
+  color: var(--cyan);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+h1 { font-size: clamp(30px, 6vw, 48px); line-height: 1.2; margin: 10px 0 16px; }
+h2 { font-size: 20px; line-height: 1.4; margin-top: 28px; }
+p, li { color: #c4d3e4; }
+.muted { color: var(--muted); }
+.panel {
+  margin-top: 20px;
+  padding: clamp(18px, 4vw, 28px);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #132136, #0b1321);
+  box-shadow: 0 15px 45px #0003;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--cyan);
+  border-radius: 11px;
+  background: #00e5ff12;
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 800;
+}
+.button.primary {
+  background: var(--cyan);
+  color: #06111b;
+}
+.button:hover { box-shadow: 0 0 22px #00e5ff2c; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+li { margin: 8px 0; }
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+footer a { margin-right: 16px; }
+@media (max-width: 480px) {
+  nav { align-items: flex-start; }
+  nav .navlinks { display: flex; gap: 14px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<header><nav class="wrap">
+  <a class="brand" href="index.html">CYBER NEON TV</a>
+  <div class="navlinks">
+    <a href="index.html">Beranda</a>
+    <a href="privacy.html">Privasi</a>
+  </div>
+</nav></header>
+<main class="wrap">
+  <div class="eyebrow">KAMI SIAP MEMBANTU</div>
+  <h1>Pusat Dukungan</h1>
+  <p>Temukan panduan dasar untuk memasang dan menggunakan ION TV Player di HP Android maupun Android TV Box.</p>
+
+  <div class="actions">
+    <a class="button primary" href="https://github.com/xyz850/iontv-player/releases/latest/download/app-debug.apk">Download APK</a>
+    <a class="button" href="https://github.com/xyz850/iontv-player/issues">Laporkan Masalah</a>
+  </div>
+
+  <section class="panel">
+    <h2>1. Cara memasang aplikasi</h2>
+    <ol>
+      <li>Tekan tombol Download APK di atas.</li>
+      <li>Tunggu sampai unduhan selesai.</li>
+      <li>Buka file APK dari notifikasi unduhan atau folder Download.</li>
+      <li>Jika Android meminta izin memasang aplikasi dari sumber ini, aktifkan izin hanya untuk aplikasi yang kamu gunakan untuk membuka APK, lalu lanjutkan instalasi.</li>
+      <li>Setelah selesai, buka ION TV Player.</li>
+    </ol>
+    <p class="muted">Unduh hanya dari tautan rilis resmi proyek. Android TV Box tertentu mungkin memerlukan pengelola file atau metode pemasangan yang sesuai dengan perangkatnya.</p>
+
+    <h2>2. Video tidak bisa diputar</h2>
+    <ul>
+      <li>Periksa koneksi internet perangkat.</li>
+      <li>Pastikan alamat sumber masih aktif dan kamu memiliki izin untuk mengaksesnya.</li>
+      <li>Coba sumber lain yang diketahui berfungsi.</li>
+      <li>Sumber tertentu mungkin memerlukan akses, header, atau lisensi yang hanya dapat diberikan oleh penyedia resminya.</li>
+    </ul>
+
+    <h2>3. Layar kosong atau aplikasi bermasalah</h2>
+    <ul>
+      <li>Tutup aplikasi lalu buka kembali.</li>
+      <li>Mulai ulang perangkat jika masalah berlanjut.</li>
+      <li>Pastikan perangkat memakai versi Android yang didukung.</li>
+      <li>Catat langkah yang menyebabkan masalah sebelum mengirim laporan.</li>
+    </ul>
+
+    <h2>4. Menggunakan Android TV Box</h2>
+    <p>Gunakan tombol arah dan OK pada remote untuk berpindah serta memilih kontrol. Jika suatu kontrol sulit dijangkau, coba perangkat input lain yang kompatibel, seperti mouse USB atau Bluetooth.</p>
+
+    <h2>5. Hubungi dukungan</h2>
+    <p>Gunakan halaman Issues di GitHub untuk melaporkan bug atau mengajukan saran. Sertakan model perangkat, versi Android, versi aplikasi jika diketahui, dan langkah untuk mengulangi masalah.</p>
+    <p><strong>Jangan sertakan</strong> kata sandi, token, alamat playlist pribadi, atau informasi rahasia dalam laporan publik.</p>
+
+    <div class="actions">
+      <a class="button primary" href="https://github.com/xyz850/iontv-player/issues">Buka GitHub Issues</a>
+      <a class="button" href="privacy.html">Kebijakan Privasi</a>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">
+  <a href="index.html">Beranda</a>
+  <a href="privacy.html">Privasi</a>
+  <span>© 2026 Cyber Neon TV</span>
+</div></footer>
+</body>
+</html>
