@@ -363,6 +363,66 @@ h1 span {
   }
 }
 
+
+/* Cyber Neon TV: susunan tombol download profesional */
+.hero-copy > .actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.hero-copy > .actions > .btn.primary,
+.hero-copy > .actions > .btn.secondary:not([href="#fitur"]) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 220px;
+  min-width: 0;
+  min-height: 52px;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.hero-copy > .actions > .btn.primary {
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.16);
+}
+
+.hero-copy > .actions > .btn.secondary:not([href="#fitur"]) {
+  border: 1px solid rgba(0, 245, 255, 0.55);
+}
+
+.hero-copy > .actions > .btn[href="#fitur"] {
+  flex: 0 0 auto;
+  min-height: 44px;
+  margin-top: 2px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .hero-copy > .actions {
+    gap: 10px;
+  }
+
+  .hero-copy > .actions > .btn.primary,
+  .hero-copy > .actions > .btn.secondary:not([href="#fitur"]) {
+    flex: 1 1 calc(50% - 10px);
+    min-height: 58px;
+    padding: 10px 8px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-copy > .actions > .btn[href="#fitur"] {
+    margin-top: 2px;
+  }
+}
+
 </style>
 </head>
 <body>
