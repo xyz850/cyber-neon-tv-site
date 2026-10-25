@@ -535,51 +535,124 @@ h1 span {
   <div style="text-align:center;margin-bottom:12px;">
     <h2 style="color:#62efff;margin:0;">GALERI CYBER NEON TV</h2>
   </div>
-  <div aria-label="Galeri gambar Cyber Neon TV, geser ke kiri atau kanan"
-       style="display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;
-              max-width:720px;margin:0 auto;padding:8px 4px 12px;
-              scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
 
-    <a href="https://xyz850.github.io/dev/ok/IMG_20261025_222203.jpg" target="_blank" rel="noopener"
-       style="flex:0 0 42%;max-width:170px;scroll-snap-align:start;
+  <div id="cne-gallery-slider"
+       aria-label="Galeri Cyber Neon TV, slider automatik dan manual"
+       tabindex="0"
+       style="display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;
+              max-width:650px;margin:0 auto;padding:8px 4px 12px;
+              scroll-snap-type:x mandatory;
+              -webkit-overflow-scrolling:touch;scrollbar-width:thin;">
+
+    <a class="cne-slide" href="https://xyz850.github.io/dev/ok/IMG_20261025_222203.jpg" target="_blank" rel="noopener"
+       aria-label="Buka gambar Cyber Neon TV Potret 1"
+       style="flex:0 0 145px;width:145px;scroll-snap-align:start;
               display:block;overflow:hidden;border:1px solid #00d9ff;
-              border-radius:12px;background:#050b18;
+              border-radius:12px;background:#050b18;text-decoration:none;
               box-shadow:0 0 10px rgba(0,217,255,.14);">
       <img src="https://xyz850.github.io/dev/ok/IMG_20261025_222203.jpg" alt="Cyber Neon TV Potret 1" loading="lazy"
-           style="display:block;width:100%;height:150px;object-fit:contain;
+           style="display:block;width:100%;height:125px;object-fit:contain;
                   background:#050b18;">
     </a>
 
-    <a href="https://xyz850.github.io/dev/ok/IMG_20261025_214419.jpg" target="_blank" rel="noopener"
-       style="flex:0 0 42%;max-width:170px;scroll-snap-align:start;
+    <a class="cne-slide" href="https://xyz850.github.io/dev/ok/IMG_20261025_214419.jpg" target="_blank" rel="noopener"
+       aria-label="Buka gambar Cyber Neon TV Potret 2"
+       style="flex:0 0 145px;width:145px;scroll-snap-align:start;
               display:block;overflow:hidden;border:1px solid #00d9ff;
-              border-radius:12px;background:#050b18;
+              border-radius:12px;background:#050b18;text-decoration:none;
               box-shadow:0 0 10px rgba(0,217,255,.14);">
       <img src="https://xyz850.github.io/dev/ok/IMG_20261025_214419.jpg" alt="Cyber Neon TV Potret 2" loading="lazy"
-           style="display:block;width:100%;height:150px;object-fit:contain;
+           style="display:block;width:100%;height:125px;object-fit:contain;
                   background:#050b18;">
     </a>
 
-    <a href="https://xyz850.github.io/dev/ok/IMG_20261025_222259.jpg" target="_blank" rel="noopener"
-       style="flex:0 0 42%;max-width:170px;scroll-snap-align:start;
+    <a class="cne-slide" href="https://xyz850.github.io/dev/ok/IMG_20261025_222259.jpg" target="_blank" rel="noopener"
+       aria-label="Buka gambar Cyber Neon TV Landskap 1"
+       style="flex:0 0 145px;width:145px;scroll-snap-align:start;
               display:block;overflow:hidden;border:1px solid #00d9ff;
-              border-radius:12px;background:#050b18;
+              border-radius:12px;background:#050b18;text-decoration:none;
               box-shadow:0 0 10px rgba(0,217,255,.14);">
       <img src="https://xyz850.github.io/dev/ok/IMG_20261025_222259.jpg" alt="Cyber Neon TV Landskap 1" loading="lazy"
-           style="display:block;width:100%;height:150px;object-fit:contain;
+           style="display:block;width:100%;height:125px;object-fit:contain;
                   background:#050b18;">
     </a>
 
-    <a href="https://xyz850.github.io/dev/ok/IMG_20261025_214447.jpg" target="_blank" rel="noopener"
-       style="flex:0 0 42%;max-width:170px;scroll-snap-align:start;
+    <a class="cne-slide" href="https://xyz850.github.io/dev/ok/IMG_20261025_214447.jpg" target="_blank" rel="noopener"
+       aria-label="Buka gambar Cyber Neon TV Landskap 2"
+       style="flex:0 0 145px;width:145px;scroll-snap-align:start;
               display:block;overflow:hidden;border:1px solid #00d9ff;
-              border-radius:12px;background:#050b18;
+              border-radius:12px;background:#050b18;text-decoration:none;
               box-shadow:0 0 10px rgba(0,217,255,.14);">
       <img src="https://xyz850.github.io/dev/ok/IMG_20261025_214447.jpg" alt="Cyber Neon TV Landskap 2" loading="lazy"
-           style="display:block;width:100%;height:150px;object-fit:contain;
+           style="display:block;width:100%;height:125px;object-fit:contain;
                   background:#050b18;">
     </a>
   </div>
+
+  <script>
+  (() => {
+    const rail = document.getElementById("cne-gallery-slider");
+    if (!rail || rail.dataset.autoReady === "1") return;
+    rail.dataset.autoReady = "1";
+
+    const reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let autoTimer = null;
+    let resumeTimer = null;
+
+    function stopAuto() {
+      if (autoTimer !== null) clearInterval(autoTimer);
+      autoTimer = null;
+    }
+
+    function startAuto() {
+      stopAuto();
+      if (reduceMotion || document.hidden) return;
+
+      autoTimer = setInterval(() => {
+        const first = rail.querySelector(".cne-slide");
+        if (!first) return;
+
+        const maxScroll = rail.scrollWidth - rail.clientWidth;
+        if (maxScroll <= 3) return;
+
+        const step = first.getBoundingClientRect().width + 10;
+        const next = rail.scrollLeft >= maxScroll - 8
+          ? 0
+          : Math.min(rail.scrollLeft + step, maxScroll);
+
+        rail.scrollTo({
+          left: next,
+          behavior: reduceMotion ? "auto" : "smooth"
+        });
+      }, 4000);
+    }
+
+    function pauseThenResume() {
+      stopAuto();
+      if (resumeTimer !== null) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(startAuto, 8000);
+    }
+
+    ["pointerdown", "touchstart", "wheel", "keydown"].forEach(eventName => {
+      rail.addEventListener(eventName, pauseThenResume, { passive: true });
+    });
+
+    rail.addEventListener("pointerup", pauseThenResume, { passive: true });
+    rail.addEventListener("touchend", pauseThenResume, { passive: true });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopAuto();
+        if (resumeTimer !== null) clearTimeout(resumeTimer);
+      } else {
+        startAuto();
+      }
+    });
+
+    startAuto();
+  })();
+  </script>
 </section>
 
 
