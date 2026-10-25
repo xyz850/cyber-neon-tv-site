@@ -533,7 +533,12 @@ h1 span {
 <!-- PEMUTAR VIDEO CYBER NEON TV -->
 
 <style id="hide-intro-before-cyber-video">
-/* Sembunyikan pengenalan dan visual hero; kekalkan tombol tindakan. */
+/* Sembunyikan pengenalan; kekalkan jalur tombol di atas video. */
+main > section.hero#home {
+  display: block !important;
+  padding: 8px 16px !important;
+  margin-bottom: 0 !important;
+}
 main > section.hero#home .hero-layout {
   display: block !important;
 }
@@ -541,18 +546,35 @@ main > section.hero#home .hero-visual,
 main > section.hero#home .hero-copy > .tag,
 main > section.hero#home .hero-copy > h1,
 main > section.hero#home .hero-copy > .lead,
-main > section.hero#home .hero-copy > p:not(.lead) {
+main > section.hero#home .hero-copy > p {
   display: none !important;
 }
-main > section.hero#home {
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
-}
+main > section.hero#home .hero-copy,
 main > section.hero#home .hero-copy > .actions {
   display: flex !important;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+  width: 100% !important;
+  max-width: none !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  margin: 0 !important;
+}
+main > section.hero#home .hero-copy > .actions > a {
+  display: inline-flex !important;
+  flex: 1 1 145px !important;
+  min-height: 48px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+@media (max-width: 650px) {
+  main > section.hero#home .hero-copy > .actions > a {
+    flex: 1 1 calc(50% - 10px) !important;
+    min-width: 130px !important;
+  }
 }
 </style>
 
