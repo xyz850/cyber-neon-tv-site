@@ -423,6 +423,45 @@ h1 span {
   }
 }
 
+
+/* Galeri Cyber Neon TV */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+.gallery-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(0, 229, 255, .25);
+  border-radius: 18px;
+  background: rgba(8, 18, 35, .72);
+}
+.gallery-placeholder {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+  text-align: center;
+  color: #00e5ff;
+  border: 1px solid rgba(0, 229, 255, .4);
+  border-radius: 12px;
+  background: radial-gradient(ellipse at center, #142c4b, #050914 75%);
+  text-shadow: 0 0 12px rgba(0, 229, 255, .65);
+}
+.gallery-placeholder strong {
+  font-size: clamp(16px, 3vw, 24px);
+}
+.gallery-card h3 { margin-bottom: 8px; }
+.gallery-card p { color: var(--muted); }
+@media (max-width: 650px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -526,6 +565,37 @@ h1 span {
          href="https://github.com/xyz850/iontv-player">
         Lihat proyek di GitHub ↗
       </a>
+    </div>
+  </section>
+
+
+  <section class="wrap" id="galeri-cyber-neon">
+    <h2>Cyber Neon TV di Telefon &amp; TV Box</h2>
+    <p class="lead">
+      Antaramuka Cyber Neon TV direka untuk pengalaman menonton
+      pada telefon Android dan skrin TV.
+    </p>
+    <div class="gallery-grid">
+      <article class="gallery-card">
+        <div class="gallery-placeholder gallery-phone"
+             role="img" aria-label="Ruang paparan telefon Android">
+          <span>CYBER NEON TV</span>
+          <strong>PAPARAN TELEFON</strong>
+          <span>Android</span>
+        </div>
+        <h3>Telefon Android</h3>
+        <p>Paparan aplikasi pada skrin telefon.</p>
+      </article>
+      <article class="gallery-card">
+        <div class="gallery-placeholder gallery-tv"
+             role="img" aria-label="Ruang paparan TV Box">
+          <span>CYBER NEON TV</span>
+          <strong>PAPARAN TV BOX</strong>
+          <span>Android TV</span>
+        </div>
+        <h3>TV Box &amp; Televisyen</h3>
+        <p>Paparan aplikasi untuk skrin yang lebih besar.</p>
+      </article>
     </div>
   </section>
 
