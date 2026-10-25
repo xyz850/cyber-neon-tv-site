@@ -533,9 +533,26 @@ h1 span {
 <!-- PEMUTAR VIDEO CYBER NEON TV -->
 
 <style id="hide-intro-before-cyber-video">
-/* Sembunyikan hero sahaja; kekalkan navigasi, video dan galeri. */
-main > section.hero#home {
+/* Sembunyikan pengenalan dan visual hero; kekalkan tombol tindakan. */
+main > section.hero#home .hero-layout {
+  display: block !important;
+}
+main > section.hero#home .hero-visual,
+main > section.hero#home .hero-copy > .tag,
+main > section.hero#home .hero-copy > h1,
+main > section.hero#home .hero-copy > .lead,
+main > section.hero#home .hero-copy > p:not(.lead) {
   display: none !important;
+}
+main > section.hero#home {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+main > section.hero#home .hero-copy > .actions {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 </style>
 
