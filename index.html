@@ -748,6 +748,7 @@ main > section.hero#home .hero-copy > .actions > a {
       <button id="cne-youtube-search" type="button" style="flex:1;padding:13px;background:#101a2b;color:#00e5ff;border:1px solid #00e5ff;border-radius:10px;font-weight:850;">⌕ CARI YOUTUBE</button>
     </div>
     <p id="cne-youtube-status" role="status" style="color:#a7b4c9;font-size:13px;"></p>
+    <div id="cne-youtube-results" style="display:grid;gap:10px;margin-top:14px;"></div>
     <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid #00e5ff66;border-radius:12px;overflow:hidden;">
       <iframe id="cne-youtube-frame" title="Cyber Neon TV YouTube Player" src="about:blank" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
     </div>
@@ -864,14 +865,77 @@ main > section.hero#home .hero-copy > .actions > a {
     status.textContent = "Memuat video YouTube...";
   });
 
-  document.getElementById("cne-youtube-search").addEventListener("click", () => {
+  const searchButton = document.getElementById("cne-youtube-search");
+  const resultsBox = document.getElementById("cne-youtube-results");
+
+  searchButton.addEventListener("click", async () => {
     const query = input.value.trim();
-    if (!query) {
-      status.textContent = "Masukkan kata pencarian terlebih dahulu.";
+    resultsBox.replaceChildren();
+
+    if (query.length < 2) {
+      status.textContent = "Ketik minimal 2 karakter untuk mencari video.";
       input.focus();
       return;
     }
-    window.open("https://www.youtube.com/results?search_query=" + encodeURIComponent(query), "_blank", "noopener");
+
+    searchButton.disabled = true;
+    status.textContent = "Sedang mencari video YouTube...";
+
+    try {
+      const response = await fetch("/api/youtube-search?q=" + encodeURIComponent(query));
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.error || "Pencarian gagal.");
+
+      if (!data.results || data.results.length === 0) {
+        status.textContent = "Video tidak ditemukan. Coba kata pencarian lain.";
+        return;
+      }
+
+      status.textContent = "Ditemukan " + data.results.length + " video. Pilih video untuk memutar.";
+
+      data.results.forEach(video => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.style.cssText = "display:flex;gap:12px;align-items:center;text-align:left;padding:10px;border:1px solid #00e5ff66;border-radius:12px;background:#101a2b;color:white;width:100%;cursor:pointer;";
+
+        const image = document.createElement("img");
+        image.src = video.thumbnail;
+        image.alt = "";
+        image.loading = "lazy";
+        image.style.cssText = "width:120px;max-width:35%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:#000;";
+
+        const details = document.createElement("span");
+        details.style.cssText = "display:block;min-width:0;font-size:14px;";
+
+        const title = document.createElement("strong");
+        title.textContent = video.title;
+        title.style.cssText = "display:block;margin-bottom:6px;";
+
+        const channel = document.createElement("small");
+        channel.textContent = video.channel;
+        channel.style.cssText = "color:#a7b4c9;";
+
+        details.append(title, channel);
+        card.append(image, details);
+
+        card.addEventListener("click", () => {
+          frame.src = "https://www.youtube.com/embed/" + encodeURIComponent(video.id) + "?autoplay=1";
+          status.textContent = "Memutar: " + video.title;
+          frame.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+
+        resultsBox.append(card);
+      });
+    } catch (error) {
+      status.textContent = error.message || "Terjadi kesalahan saat mencari video.";
+    } finally {
+      searchButton.disabled = false;
+    }
+  });
+
+  input.addEventListener("keydown", event => {
+    if (event.key === "Enter") searchButton.click();
   });
 })();
 </script>

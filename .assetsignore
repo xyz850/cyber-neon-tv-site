@@ -1,0 +1,10 @@
+.*
+*.backup*
+*.log
+*.pid
+__pycache__/
+src/
+node_modules/
+package.json
+package-lock.json
+wrangler.jsonc
