@@ -1,7 +1,7 @@
 {
   "appName": "Cyber Neon TV",
-  "versionCode": 3,
-  "versionName": "1.1",
-  "downloadUrl": "https://github.com/xyz850/iontv-player/releases/latest/download/app-debug.apk",
-  "releaseNotes": "Cyber Neon TV 1.1: pemberitahuan pembaruan otomatis saat aplikasi dibuka dan tombol untuk mengunduh versi terbaru."
+  "versionCode": 8,
+  "versionName": "1.6",
+  "downloadUrl": "https://github.com/xyz850/iontv-player/releases/download/cyber-neon-tv-1.6-stable-hotfix-2026.10.30/Cyber-Neon-TV-1.6-Stable.apk",
+  "releaseNotes": "Cyber Neon TV 1.6 Stable Hotfix: perbaikan overlay pemutar Lagu Bugis."
 }
