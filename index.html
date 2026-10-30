@@ -469,6 +469,7 @@ h1 span {
   <nav class="wrap">
     <a class="logo" href="#home">CYBER NEON TV</a>
     <div class="links">
+      <a href="#youtube-cyber-neon">YouTube</a>
       <a href="#fitur">Features</a>
       <a href="#panduan">Guide</a>
       <a href="dukungan.html">Support</a>
@@ -735,6 +736,25 @@ main > section.hero#home .hero-copy > .actions > a {
 </section>
 
 
+
+<section class="wrap" id="youtube-cyber-neon">
+  <div style="max-width:760px;margin:auto;padding:22px;border:1px solid #00e5ff88;border-radius:18px;background:#101a2b;box-shadow:0 0 24px #00e5ff20;">
+    <div style="color:#00e5ff;font-size:12px;letter-spacing:2px;font-weight:800;">◉ CYBER NEON MEDIA</div>
+    <h2 style="color:#62efff;margin-top:8px;">YOUTUBE PLAYER</h2>
+    <p class="sub">Masukkan link atau ID video YouTube.</p>
+    <input id="cne-youtube-input" type="text" placeholder="Tempel link atau ID video YouTube..." style="width:100%;padding:14px;border:1px solid #00d9ff88;border-radius:10px;background:#050b18;color:white;">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+      <button id="cne-youtube-play" type="button" style="flex:1;padding:13px;background:#00e5ff;color:#06111c;border:0;border-radius:10px;font-weight:850;">▶ PUTAR</button>
+      <button id="cne-youtube-search" type="button" style="flex:1;padding:13px;background:#101a2b;color:#00e5ff;border:1px solid #00e5ff;border-radius:10px;font-weight:850;">⌕ CARI YOUTUBE</button>
+    </div>
+    <p id="cne-youtube-status" role="status" style="color:#a7b4c9;font-size:13px;"></p>
+    <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid #00e5ff66;border-radius:12px;overflow:hidden;">
+      <iframe id="cne-youtube-frame" title="Cyber Neon TV YouTube Player" src="about:blank" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>
+    </div>
+    <p style="color:#a7b4c9;font-size:12px;">Pemutaran mengikuti ketentuan dan iklan resmi YouTube.</p>
+  </div>
+</section>
+
 <section class="wrap" id="fitur">
     <h2>Designed for a convenient experience.</h2>
     <p class="sub">
@@ -806,5 +826,55 @@ main > section.hero#home .hero-copy > .actions > a {
     <span><a href="#home">Back to Top ↑</a></span>
   </div>
 </footer>
+
+<script>
+(() => {
+  const input = document.getElementById("cne-youtube-input");
+  const frame = document.getElementById("cne-youtube-frame");
+  const status = document.getElementById("cne-youtube-status");
+
+  function getVideoId(value) {
+    const text = value.trim();
+    if (/^[A-Za-z0-9_-]{11}$/.test(text)) return text;
+    try {
+      const url = new URL(text);
+      let id = "";
+      if (url.hostname === "youtu.be") {
+        id = url.pathname.split("/").filter(Boolean)[0] || "";
+      } else if (url.hostname.endsWith("youtube.com")) {
+        id = url.searchParams.get("v") || "";
+        if (!id) {
+          const parts = url.pathname.split("/").filter(Boolean);
+          if (["embed", "shorts", "live"].includes(parts[0])) id = parts[1] || "";
+        }
+      }
+      return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : "";
+    } catch (_) {
+      return "";
+    }
+  }
+
+  document.getElementById("cne-youtube-play").addEventListener("click", () => {
+    const id = getVideoId(input.value);
+    if (!id) {
+      status.textContent = "Link atau ID video tidak valid.";
+      return;
+    }
+    frame.src = "https://www.youtube.com/embed/" + encodeURIComponent(id) + "?autoplay=1";
+    status.textContent = "Memuat video YouTube...";
+  });
+
+  document.getElementById("cne-youtube-search").addEventListener("click", () => {
+    const query = input.value.trim();
+    if (!query) {
+      status.textContent = "Masukkan kata pencarian terlebih dahulu.";
+      input.focus();
+      return;
+    }
+    window.open("https://www.youtube.com/results?search_query=" + encodeURIComponent(query), "_blank", "noopener");
+  });
+})();
+</script>
+
 </body>
 </html>
